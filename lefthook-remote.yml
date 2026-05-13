@@ -1,0 +1,13 @@
+---
+pre-commit:
+  commands:
+    flay:
+      glob: "**/*.rb"
+      run: bundle exec flay {staged_files} || true
+      timeout: 60s
+
+pre-push:
+  commands:
+    flay:
+      run: bundle exec flay app/ lib/ || true
+      timeout: 60s
